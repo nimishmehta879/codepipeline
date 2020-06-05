@@ -1,0 +1,51 @@
+{
+    "Version": "2012-10-17",
+    "Id": "SSEAndSSLPolicy",
+    "Statement": [
+      {
+        "Sid": "DenyUnEncryptedObjectUploads",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:PutObject",
+        "Resource": "arn:aws:s3:::codepipeline-us-east-1-1234567890/*",
+        "Condition": {
+          "StringNotEquals": {
+          "s3:x-amz-server-side-encryption": "aws:kms"
+          }
+         }
+       },
+      {
+        "Sid": "DenyInsecureConnections",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:*",
+        "Resource": "arn:aws:s3:::codepipeline-us-east-1-1234567890/*",
+        "Condition": {
+          "Bool": {
+                "aws:SecureTransport": false
+              }
+          }
+        },
+      {
+        "Sid": "",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::086706880215:root"
+          },
+        "Action": [
+              "s3:Get*",
+              "s3:Put*"
+          ],
+        "Resource": "arn:aws:s3:::codepipeline-us-east-1-1234567890/*"
+      },
+      {
+        "Sid": "",
+        "Effect": "Allow",
+        "Principal": {
+            "AWS": "arn:aws:iam::086706880215:root"
+              },
+        "Action": "s3:ListBucket",
+        "Resource": "arn:aws:s3:::codepipeline-us-east-1-1234567890"
+      }
+     ]
+  } 
