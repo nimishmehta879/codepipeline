@@ -42,7 +42,7 @@ resource "aws_codepipeline" "codepipeline" {
       output_artifacts = ["baseline_output"]
 
       configuration = {
-        OAuthToken = "4b0e3f78330eb209b8ac16d1a9b6541d5908d689"
+        OAuthToken = "f601b8a9e40e8c7e410aa47dc1948ed7b1151375"
         Owner  = "nimishmehta8779"
         Repo   = "codepipeline"
         Branch = "master"

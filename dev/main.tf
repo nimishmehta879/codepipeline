@@ -10,3 +10,12 @@ resource "aws_vpc" "main" {
     Name = "main"
   }
 }
+
+resource "aws_ebs_volume" "example" {
+  availability_zone = "us-east-1a"
+  size              = 1
+
+  tags = {
+    Name = "terraform-test"
+  }
+}
