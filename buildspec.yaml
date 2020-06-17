@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - cd "$CODEBUILD_SRC_DIR"/dev
-      - terraform init
+      - terraform1 init
       - terraform apply -auto-approve
       - 
 
