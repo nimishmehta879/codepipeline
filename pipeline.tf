@@ -17,7 +17,7 @@ resource "aws_iam_role_policy_attachment" "admin-access-policy" {
 
 
 resource "aws_codepipeline" "codepipeline" {
-  name     = "tf-test-pipeline"
+  name     = "tf-test-pipeline1"
   role_arn = aws_iam_role.codepipeline_role.arn
 
   artifact_store {
