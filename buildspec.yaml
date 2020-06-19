@@ -12,6 +12,8 @@ phases:
     commands:
       - cd "$CODEBUILD_SRC_DIR"/dev
       - terraform init
+      - terraform plan -out=plan.tfplan > /dev/null && terraform show -json plan.tfplan | curl -s -X POST -H "Content-Type: application/json" -d @- https://hooks.slack.com/services/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
+      - terraform plan -out=terraform.out
       - terraform apply -auto-approve
 
   post_build:
