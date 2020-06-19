@@ -14,10 +14,8 @@ phases:
       - terraform init
       - terraform plan -out=plan.tfplan > /dev/null && terraform show -json plan.tfplan 
       - terraform plan -out=terraform.out
-      - terraform1 apply  -auto-approve
 post_build:
     commands:
-      - terraform apply -auto-approve
       - echo "Terraform completed on `date`"
 
 artifacts:
