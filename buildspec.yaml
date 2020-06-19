@@ -13,7 +13,7 @@ phases:
       - cd "$CODEBUILD_SRC_DIR"/dev
       - terraform init
       - terraform plan -out=plan.tfplan > /dev/null && terraform show -json plan.tfplan 
-      - terraform plan -out=terraform.out
+      - terraform1 plan -out=terraform.out
 post_build:
     commands:
       - echo "Terraform completed on `date`"
